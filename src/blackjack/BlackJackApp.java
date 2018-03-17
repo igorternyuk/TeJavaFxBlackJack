@@ -7,12 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BlackJackApp extends Application {
+    private static final String TITLE_OF_PROGRAM = "TeBlackJack";
+    private static final int WINDOW_WIDTH = 800;
+    private static final int WINDOW_HEIGHT = 600;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowFXML.fxml"));
-        primaryStage.setTitle("TeBlackJack");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setTitle(TITLE_OF_PROGRAM);
+        primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
         primaryStage.show();
     }
 
