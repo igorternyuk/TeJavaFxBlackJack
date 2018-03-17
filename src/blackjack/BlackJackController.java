@@ -64,7 +64,7 @@ public class BlackJackController implements Initializable {
     private void renderTable() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setFill(TABLE_COLOR);
-        gc.fillRoundRect(0, 0, canvas.getWidth(), canvas.getHeight(), 20, 20);
+        gc.fillRoundRect(0, 0, canvas.getWidth(), canvas.getHeight(), 50, 50);
     }
 
     private void render() {

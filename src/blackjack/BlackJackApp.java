@@ -16,6 +16,7 @@ public class BlackJackApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowFXML.fxml"));
         primaryStage.setTitle(TITLE_OF_PROGRAM);
         primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
