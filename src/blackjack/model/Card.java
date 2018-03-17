@@ -5,11 +5,11 @@ package blackjack.model;
  */
 public class Card {
     public enum Suit {
-        HEARTS("H"), CLUBS("C"), DIAMONDS("D"), SPADES("S");
+        CLUBS("C"), HEARTS("H"), SPADES("S"), DIAMONDS("D");
 
         private String text;
 
-        private Suit(final String text){
+        Suit(final String text) {
             this.text = text;
         }
 
@@ -24,7 +24,7 @@ public class Card {
         private int value;
         private boolean isfigure;
 
-        private Rank(final int value, final boolean isfigure){
+        Rank(final int value, final boolean isfigure) {
             this.value = value;
             this.isfigure = isfigure;
         }
