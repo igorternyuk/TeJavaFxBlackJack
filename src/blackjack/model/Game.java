@@ -8,7 +8,7 @@ import java.util.List;
  * Created by igor on 17.03.18.
  */
 public class Game {
-    private static final int NUMBER_OF_PLAYERS = 5;
+    public static final int NUMBER_OF_PLAYERS = 5;
     private static final int INITIAL_DEAL_CARD_NUMBER = 2;
     private static final double CASINO_START_POT = 1000000;
     private static final double INITIAL_PLAYER_MONEY_BALANCE = 1000;
@@ -43,6 +43,8 @@ public class Game {
 
     public void startNewGame() {
         this.roundNumber = 0;
+        this.dealer.setCasinoBalance(CASINO_START_POT);
+        this.players.forEach(player -> player.setMoneyBalance(INITIAL_PLAYER_MONEY_BALANCE));
         startNewRound();
     }
 
@@ -61,7 +63,10 @@ public class Game {
                 this.deck.deal(player);
             }
         });
-        this.deck.deal(this.dealer);
+        for (int i = 0; i < INITIAL_DEAL_CARD_NUMBER; ++i) {
+            this.deck.deal(this.dealer);
+        }
+        this.dealer.setStatus(PlayerStatus.HITTING);
         this.dealer.flipFirstCard();
     }
 
@@ -111,12 +116,14 @@ public class Game {
     private void dealToBotsAndDealer() {
         this.players.stream().filter(player -> player.getType().equals(PlayerType.COMPUTER)).forEach(player -> {
             while (player.isHitting()) {
+                //System.out.println("Dealing to player");
                 this.deck.deal(player);
             }
             player.setStatus(PlayerStatus.STAND);
         });
         this.dealer.flipFirstCard();
         while (this.dealer.isHitting()) {
+            //System.out.println("Dealing to dealer");
             this.deck.deal(this.dealer);
         }
         this.dealer.setStatus(PlayerStatus.STAND);

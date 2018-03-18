@@ -43,5 +43,6 @@ public class Deck {
     public void deal(final AbstractPlayer player) {
         player.addCard(this.cards.get(this.cards.size() - 1));
         this.cards.remove(this.cards.size() - 1);
+        //System.out.println("Cards in deck: " + this.cards.size());
     }
 }

@@ -35,17 +35,13 @@ public class HandTest {
         hand1.addCard(new Card(Suit.SPADES, Rank.EIGHT));
         hand1.addCard(new Card(Suit.SPADES, Rank.TEN));
         hand1.addCard(new Card(Suit.DIAMONDS, Rank.ACE));
-        hand2.addCard(new Card(Suit.SPADES, Rank.TWO));
-        hand2.addCard(new Card(Suit.HEARTS, Rank.TWO));
-        hand2.addCard(new Card(Suit.DIAMONDS, Rank.TWO));
-        hand2.addCard(new Card(Suit.CLUBS, Rank.TWO));
         hand2.addCard(new Card(Suit.SPADES, Rank.THREE));
         hand2.addCard(new Card(Suit.HEARTS, Rank.THREE));
         hand2.addCard(new Card(Suit.DIAMONDS, Rank.THREE));
         hand2.addCard(new Card(Suit.CLUBS, Rank.THREE));
         hand2.addCard(new Card(Suit.DIAMONDS, Rank.ACE));
         assertEquals(19, hand1.evaluate());
-        assertEquals(21, hand2.evaluate());
+        assertEquals(13, hand2.evaluate());
     }
 
     @Test

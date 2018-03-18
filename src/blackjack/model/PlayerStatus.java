@@ -15,4 +15,9 @@ public enum PlayerStatus {
     }
 
     private String text;
+
+    @Override
+    public String toString() {
+        return this.text;
+    }
 }

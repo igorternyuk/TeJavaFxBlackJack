@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class BlackJackApp extends Application {
     private static final String TITLE_OF_PROGRAM = "TeBlackJack";
-    private static final int WINDOW_WIDTH = 800;
+    private static final int WINDOW_WIDTH = 1200;
     private static final int WINDOW_HEIGHT = 600;
 
     @Override

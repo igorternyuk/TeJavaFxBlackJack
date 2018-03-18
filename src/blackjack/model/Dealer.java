@@ -12,6 +12,10 @@ public class Dealer extends AbstractPlayer {
         this.casinoMoney = casinoStartPot;
     }
 
+    public void setCasinoBalance(final double casinoMoney) {
+        this.casinoMoney = casinoMoney;
+    }
+
     public double getCasinoMoney() {
         return this.casinoMoney;
     }
@@ -35,7 +39,9 @@ public class Dealer extends AbstractPlayer {
 
     @Override
     public String toString() {
-        return String.format("%s %s\n Casino balance:%8.2f$", this.name, this.hand.toString(), this.casinoMoney);
+        return String.format("%s %s\nHand total: %s\nCasino balance:%8.2f$\n%s", this.name, this.hand.toString(),
+                this.getCards().get(0).isCardFlipped() ? "" : String.valueOf(this.getHandTotal()),
+                this.casinoMoney, this.status.toString());
     }
 
 

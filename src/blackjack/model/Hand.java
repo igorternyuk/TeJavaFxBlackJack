@@ -8,7 +8,7 @@ import java.util.List;
  * Created by igor on 16.03.18.
  */
 public class Hand {
-    public static final int MAX_NUMBER_OF_CARDS = 9;
+    public static final int MAX_NUMBER_OF_CARDS = 5;
     public static final int TWO_ACES = 100;
     public static final int LIMIT = 21;
     private List<Card> cards = new ArrayList<>(MAX_NUMBER_OF_CARDS);
@@ -121,12 +121,16 @@ public class Hand {
     public String toString() {
         if (this.areTwoAces) {
             return "Two aces";
+        } else if (this.isBlackJack) {
+            return "Black Jack";
         } else {
             StringBuilder textRepresentation = new StringBuilder();
             for (final Card card : this.cards) {
-                textRepresentation.append(card).append(" -");
+                textRepresentation.append(card).append("-");
             }
-            return textRepresentation.substring(0, textRepresentation.length() - 2);
+            return !textRepresentation.toString().isEmpty()
+                    ? textRepresentation.substring(0, textRepresentation.length() - 1)
+                    : "";
         }
     }
 }
