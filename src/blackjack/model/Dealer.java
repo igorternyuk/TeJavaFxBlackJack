@@ -25,7 +25,7 @@ public class Dealer extends AbstractPlayer {
         return this.hand.evaluate() < HITTING_LIMIT;
     }
 
-    public void payToWinner(final double prizeMoney) {
+    public void takeMoneyForWinner(final double prizeMoney) {
         this.casinoMoney -= prizeMoney;
     }
 

@@ -11,7 +11,7 @@ public abstract class AbstractPlayer {
     protected final PlayerType type;
     protected PlayerStatus status;
 
-    public AbstractPlayer(final String name, final PlayerType type) {
+    AbstractPlayer(final String name, final PlayerType type) {
         this.name = name;
         this.hand = new Hand();
         this.type = type;
@@ -54,7 +54,7 @@ public abstract class AbstractPlayer {
         return this.hand.hasBlackJack();
     }
 
-    public boolean hasBlackJackWithSameColorCards() {
+    public boolean hasBlackJackWithSameSuitCards() {
         return this.hand.hasBlackJackWithSameSuitCards();
     }
 
