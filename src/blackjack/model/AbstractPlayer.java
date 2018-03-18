@@ -1,29 +1,74 @@
 package blackjack.model;
 
+import java.util.List;
+
 /**
  * Created by igor on 17.03.18.
  */
-public class AbstractPlayer {
-    private String name;
-    private Hand hand;
+public abstract class AbstractPlayer {
+    protected final String name;
+    protected final Hand hand;
+    protected final PlayerType type;
+    protected PlayerStatus status;
+
+    public AbstractPlayer(final String name, final PlayerType type) {
+        this.name = name;
+        this.hand = new Hand();
+        this.type = type;
+        this.status = PlayerStatus.HITTING;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public PlayerType getType() {
+        return this.type;
+    }
+
+    public PlayerStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(PlayerStatus status) {
+        this.status = status;
+    }
 
     public void addCard(final Card card) {
-        System.out.println("Added card: " + card);
+        this.hand.addCard(card);
     }
-}
 
-/*
-* inline auto getName() const noexcept { return m_name; }
-        inline const std::vector<std::unique_ptr<Card>>& getCards() const { return m_hand->cards(); }
-        bool isBusted() const;
-        int getHandTotal() const;
-        bool hasBlackJack() const;
-        bool hasTwoCardWithSameSuit() const;
-        bool hasTwoAces() const;
-        bool hasThreeSevens() const;
-        virtual std::string getHandTextDescription() const;
-        //indicates whether or not abstract player wants to keep hitting
-        virtual bool isHitting() const = 0;
-        void addCard(std::unique_ptr<Card> &card);
-        void clearCards();
-* */
+    public void clearCards() {
+        this.hand.clear();
+    }
+
+    public List<Card> getCards() {
+        return this.hand.getCards();
+    }
+
+    public int getHandTotal() {
+        return this.hand.evaluate();
+    }
+
+    public boolean hasBlackJack() {
+        return this.hand.hasBlackJack();
+    }
+
+    public boolean hasBlackJackWithSameColorCards() {
+        return this.hand.hasBlackJackWithSameSuitCards();
+    }
+
+    public boolean hasTwoAces() {
+        return this.hand.hasTwoAces();
+    }
+
+    public boolean hasThreeSevens() {
+        return this.hand.hasThreeSevens();
+    }
+
+    public boolean isBusted() {
+        return this.hand.isBusted();
+    }
+
+    public abstract boolean isHitting();
+}

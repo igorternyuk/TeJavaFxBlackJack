@@ -98,6 +98,11 @@ public class Hand {
         return this.total;
     }
 
+    public boolean isBusted() {
+        if (hasTwoAces()) return false;
+        return evaluate() > Hand.LIMIT;
+    }
+
     public void flipFirstCard() {
         if (!this.cards.isEmpty()) {
             this.cards.get(0).flip();

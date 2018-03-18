@@ -5,6 +5,7 @@ import blackjack.model.Hand;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static blackjack.model.Card.Suit;
 import static blackjack.model.Card.Rank;
@@ -87,5 +88,16 @@ public class HandTest {
         assertTrue(hand1.hasBlackJackWithSameSuitCards());
         assertEquals(21, hand2.evaluate());
         assertTrue(hand2.hasBlackJackWithSameSuitCards());
+    }
+
+    @Test
+    public void testBusted() {
+        hand1.addCard(new Card(Suit.HEARTS, Rank.KING));
+        hand1.addCard(new Card(Suit.CLUBS, Rank.KING));
+        hand1.addCard(new Card(Suit.DIAMONDS, Rank.KING));
+        assertTrue(hand1.isBusted());
+        hand2.addCard(new Card(Suit.HEARTS, Rank.QUEEN));
+        hand2.addCard(new Card(Suit.CLUBS, Rank.JACK));
+        assertFalse(hand2.isBusted());
     }
 }
