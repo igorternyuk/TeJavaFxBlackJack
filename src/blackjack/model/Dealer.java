@@ -40,7 +40,9 @@ public class Dealer extends AbstractPlayer {
     @Override
     public String toString() {
         return String.format("%s %s\nHand total: %s\nCasino balance:%8.2f$\n%s", this.name, this.hand.toString(),
-                this.getCards().get(0).isCardFlipped() ? "" : String.valueOf(this.getHandTotal()),
+                this.getCards().isEmpty() || this.getCards().get(0).isCardFlipped()
+                        ? ""
+                        : String.valueOf(this.getHandTotal()),
                 this.casinoMoney, this.status.toString());
     }
 

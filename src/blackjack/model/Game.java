@@ -17,7 +17,7 @@ public class Game {
     private static final double MONEY_COEFFICIENT_FOR_TWO_ACES = 2.0;
     private static final double MONEY_COEFFICIENT_FOR_BLACK_JACK = 1.5;
     private static final double MONEY_COEFFICIENT_REGULAR = 1.0;
-    private int roundNumber = 1;
+    private int roundNumber = 0;
     private final Deck deck = new Deck();
     private final Dealer dealer = new Dealer("Casino", PlayerType.COMPUTER, CASINO_START_POT);
     private final List<Player> players = new ArrayList<>(NUMBER_OF_PLAYERS);

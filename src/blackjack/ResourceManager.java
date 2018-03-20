@@ -20,8 +20,8 @@ public class ResourceManager {
     private static final String PATH_TO_CARD_SPRITE_SET = "rsc/img/CardsSprite.png";
     private static final String PATH_TO_CARD_BACK_SIDE = "rsc/img/cardBack.png";
     private static final String SPRITE_LOADING_ERROR_MESSAGE = "Could not load card sprite set";
-    public static final int CARD_WIDTH = 73;
-    public static final int CARD_HEIGHT = 98;
+    static final int CARD_WIDTH = 73;
+    static final int CARD_HEIGHT = 98;
     private BufferedImage spriteSet = null;
     private BufferedImage[][] cardImages = null;
     private BufferedImage cardBackSideImage = null;
