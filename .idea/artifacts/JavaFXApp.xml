@@ -15,6 +15,7 @@
       <element id="archive" name="JavaFXApp.jar">
         <element id="module-output" name="TeJavaFXBlackJack" />
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/rsc" />
     </root>
   </artifact>
 </component>

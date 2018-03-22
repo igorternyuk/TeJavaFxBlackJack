@@ -17,8 +17,8 @@ import java.io.IOException;
  */
 public class ResourceManager {
     private static ResourceManager instance = null;
-    private static final String PATH_TO_CARD_SPRITE_SET = "rsc/img/CardsSprite.png";
-    private static final String PATH_TO_CARD_BACK_SIDE = "rsc/img/cardBack.png";
+    private static final String PATH_TO_CARD_SPRITE_SET = "/resources/img/CardsSprite.png";
+    private static final String PATH_TO_CARD_BACK_SIDE = "/resources/img/cardBack.png";
     private static final String SPRITE_LOADING_ERROR_MESSAGE = "Could not load card sprite set";
     static final int CARD_WIDTH = 73;
     static final int CARD_HEIGHT = 98;
@@ -28,8 +28,11 @@ public class ResourceManager {
 
     private ResourceManager() {
         try {
-            this.spriteSet = ImageIO.read(new File(PATH_TO_CARD_SPRITE_SET));
-            this.cardBackSideImage = ImageIO.read(new File(PATH_TO_CARD_BACK_SIDE));
+            //final ImageIcon icoFill = new ImageIcon(View.class.getResource("img/btnFill.png"));
+            /*this.spriteSet = ImageIO.read(new File(PATH_TO_CARD_SPRITE_SET));
+            this.cardBackSideImage = ImageIO.read(new File(PATH_TO_CARD_BACK_SIDE));*/
+            this.spriteSet = ImageIO.read(getClass().getResource(PATH_TO_CARD_SPRITE_SET));
+            this.cardBackSideImage = ImageIO.read(getClass().getResource(PATH_TO_CARD_BACK_SIDE));
             this.cardImages = createCardImages();
         } catch (IOException ex) {
             System.out.println(SPRITE_LOADING_ERROR_MESSAGE);
